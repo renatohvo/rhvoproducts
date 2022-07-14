@@ -1,25 +1,25 @@
 package com.renatohvo.rhvoproducts.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.renatohvo.rhvoproducts.entities.Category;
+import com.renatohvo.rhvoproducts.services.CategoryService;
 
 @RestController
 @RequestMapping(value = "/categories")
 public class CategoryController {
 	
+	@Autowired
+	private CategoryService categoryService;
+
 	@GetMapping
-	public ResponseEntity<List<Category>>findAll(){
-		List<Category> listCategory = new ArrayList<>();
-		listCategory.add(new Category(1L, "Eletronics"));
-		listCategory.add(new Category(2L, "Bags"));
-		return ResponseEntity.ok().body(listCategory);
+	public List<Category>findAll(){
+		return categoryService.findAll();
 	}
-	
+
 }
