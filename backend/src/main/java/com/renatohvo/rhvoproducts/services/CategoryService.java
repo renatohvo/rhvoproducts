@@ -22,13 +22,21 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public List<CategoryDTO> findAll(){
 		List<Category> list = repository.findAll();
-		return list.stream().map(cat -> new CategoryDTO(cat)).collect(Collectors.toList());		
+		return list.stream().map(entity -> new CategoryDTO(entity)).collect(Collectors.toList());		
 	}
 
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
-		Category cat = obj.orElseThrow(() -> new EntityNotFoundException("ENTITY NOT FOUND!"));
-		return new CategoryDTO(cat);
+		Category entity = obj.orElseThrow(() -> new EntityNotFoundException("ENTITY NOT FOUND!"));
+		return new CategoryDTO(entity);
+	}
+	
+	@Transactional
+	public CategoryDTO insert(CategoryDTO dto) {
+		Category entity = new Category();
+		entity.setName(dto.getName());
+		entity = repository.save(entity);
+		return new CategoryDTO(entity);
 	}
 }
