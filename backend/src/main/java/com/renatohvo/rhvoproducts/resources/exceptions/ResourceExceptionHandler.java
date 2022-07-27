@@ -1,4 +1,4 @@
-package com.renatohvo.rhvoproducts.controllers.exceptions;
+package com.renatohvo.rhvoproducts.resources.exceptions;
 
 import java.time.Instant;
 
@@ -9,17 +9,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.renatohvo.rhvoproducts.services.exceptions.EntityNotFoundException;
+import com.renatohvo.rhvoproducts.services.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
-public class ControllerExceptionHandler {
+public class ResourceExceptionHandler {
 	
-	@ExceptionHandler(EntityNotFoundException.class)
-	public ResponseEntity<StandardError> entityNotFound(EntityNotFoundException e, HttpServletRequest req){
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException e, HttpServletRequest req){
 		StandardError err = new StandardError();
 		err.setTimestamp(Instant.now());
 		err.setStatus(HttpStatus.NOT_FOUND.value());
-		err.setError("RESOURCE NOT FOUND!");
+		err.setError("RESOURCE NOT FOUND");
 		err.setMessage(e.getMessage());
 		err.setPath(req.getRequestURI());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);

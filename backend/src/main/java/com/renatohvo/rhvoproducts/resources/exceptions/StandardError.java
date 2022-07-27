@@ -1,4 +1,4 @@
-package com.renatohvo.rhvoproducts.controllers.exceptions;
+package com.renatohvo.rhvoproducts.resources.exceptions;
 
 import java.io.Serializable;
 import java.time.Instant;
