@@ -58,7 +58,6 @@ public class CategoryService {
 		}
 	}
 
-	@Transactional
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
