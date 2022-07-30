@@ -2,7 +2,6 @@ package com.renatohvo.rhvoproducts.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
