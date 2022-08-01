@@ -12,8 +12,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.renatohvo.rhvoproducts.dto.CategoryDTO;
 import com.renatohvo.rhvoproducts.dto.ProductDTO;
+import com.renatohvo.rhvoproducts.entities.Category;
 import com.renatohvo.rhvoproducts.entities.Product;
+import com.renatohvo.rhvoproducts.repositories.CategoryRepository;
 import com.renatohvo.rhvoproducts.repositories.ProductRepository;
 import com.renatohvo.rhvoproducts.services.exceptions.DatabaseException;
 import com.renatohvo.rhvoproducts.services.exceptions.ResourceNotFoundException;
@@ -22,17 +25,20 @@ import com.renatohvo.rhvoproducts.services.exceptions.ResourceNotFoundException;
 public class ProductService {
 
 	@Autowired
-	private ProductRepository repository;
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
-		Page<Product> list = repository.findAll(pageRequest);
+		Page<Product> list = productRepository.findAll(pageRequest);
 		return list.map(entity -> new ProductDTO(entity));
 	}
 
 	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
-		Optional<Product> obj = repository.findById(id);
+		Optional<Product> obj = productRepository.findById(id);
 		Product entity = obj.orElseThrow(() -> new ResourceNotFoundException("ENTITY NOT FOUND"));
 		return new ProductDTO(entity, entity.getCategories());
 	}
@@ -40,15 +46,17 @@ public class ProductService {
 	@Transactional
 	public ProductDTO insert(ProductDTO dto) {
 		Product entity = new Product();
-//		entity.setName(dto.getName());
+		copyDtoToEntity(dto , entity);
+		entity = productRepository.save(entity);
 		return new ProductDTO(entity);
 	}
 
 	@Transactional
 	public ProductDTO update(Long id, ProductDTO dto) {
 		try {
-			Product entity = repository.getOne(id);
-//			entity.setName(dto.getName());
+			Product entity = productRepository.getOne(id);
+			copyDtoToEntity(dto , entity);
+			entity = productRepository.save(entity);
 			return new ProductDTO(entity);
 		}
 		catch(EntityNotFoundException e) {
@@ -58,7 +66,7 @@ public class ProductService {
 	
 	public void delete(Long id) {
 		try {
-			repository.deleteById(id);
+			productRepository.deleteById(id);
 		}
 		catch(EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException("ID NOT FOUND: " + id);
@@ -68,4 +76,18 @@ public class ProductService {
 		}
 	}
 
+	private void copyDtoToEntity(ProductDTO dto, Product entity) {
+		entity.setName(dto.getName());
+		entity.setDescription(dto.getDescription());
+		entity.setPrice(dto.getPrice());
+		entity.setImgUrl(dto.getImgUrl());
+		entity.setDate(dto.getDate());
+		
+		entity.getCategories().clear();
+		for (CategoryDTO catDto : dto.getCategories()) {
+			Category category = categoryRepository.getOne(catDto.getId());
+			entity.getCategories().add(category);
+		}
+	}
+	
 }
