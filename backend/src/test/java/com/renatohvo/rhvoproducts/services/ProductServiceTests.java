@@ -61,9 +61,11 @@ public class ProductServiceTests {
 		page = new PageImpl<>(List.of(product));
 		
 		Mockito.when(productRepository.save(ArgumentMatchers.any())).thenReturn(product);
+		
 		Mockito.when(productRepository.findAll((Pageable)ArgumentMatchers.any())).thenReturn(page);
 		Mockito.when(productRepository.findById(idExist)).thenReturn(Optional.of(product));
 		Mockito.when(productRepository.findById(idNotExist)).thenReturn(Optional.empty());
+		
 		Mockito.when(productRepository.getOne(idExist)).thenReturn(product);
 		Mockito.when(productRepository.getOne(idNotExist)).thenThrow(EntityNotFoundException.class);
 		
@@ -73,6 +75,14 @@ public class ProductServiceTests {
 		Mockito.doNothing().when(productRepository).deleteById(idExist);
 		Mockito.doThrow(EmptyResultDataAccessException.class).when(productRepository).deleteById(idNotExist);
 		Mockito.doThrow(DataIntegrityViolationException.class).when(productRepository).deleteById(idDependent);
+	}
+	
+	@Test
+	public void insertShouldReturnProductDTO() {
+		
+		ProductDTO result = service.insert(productDTO);
+		
+		Assertions.assertNotNull(result);
 	}
 	
 	@Test
