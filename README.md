@@ -1,6 +1,11 @@
-# RHVO Products - Backend
+# RHVO Products - Backend Project
 
-## - API REST com Java e Spring Boot
+* ### API REST com Java e Spring Boot
+* ### Mockito & MockBean
+* ### ORM com JPA
+* ### Maven
+* ### Postman
+* ### GIT
 
 <div display: inline-block>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="80" heigth="80" />
@@ -10,4 +15,4 @@
     <img src="https://junit.org/junit5/assets/img/junit5-logo.png" width="80" height="80">
 </div>
 
-### Link Postman >> <a href="https://www.getpostman.com/collections/aa14d32f91d7b0f9a51c" target="_blank" rel="noopener noreferrer">https://www.getpostman.com/collections/aa14d32f91d7b0f9a51c</a>
+### Link Postman >> <https://www.getpostman.com/collections/aa14d32f91d7b0f9a51c>
