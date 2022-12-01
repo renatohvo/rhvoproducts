@@ -8,8 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -22,7 +20,6 @@ import com.renatohvo.rhvoproducts.dto.ProductDTO;
 import com.renatohvo.rhvoproducts.tests.Factory;
 
 @SpringBootTest
-@EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @AutoConfigureMockMvc
 @Transactional
 public class ProductResourceIT {

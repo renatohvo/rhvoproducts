@@ -17,7 +17,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
@@ -32,7 +31,7 @@ import com.renatohvo.rhvoproducts.services.exceptions.DatabaseException;
 import com.renatohvo.rhvoproducts.services.exceptions.ResourceNotFoundException;
 import com.renatohvo.rhvoproducts.tests.Factory;
 
-@WebMvcTest(controllers = ProductResource.class, excludeAutoConfiguration = {SecurityAutoConfiguration.class})
+@WebMvcTest(controllers = ProductResource.class)
 public class ProductResourceTests {
 	
 	@Autowired
