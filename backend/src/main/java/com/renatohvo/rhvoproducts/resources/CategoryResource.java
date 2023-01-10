@@ -19,8 +19,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.renatohvo.rhvoproducts.dto.CategoryDTO;
 import com.renatohvo.rhvoproducts.services.CategoryService;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping(value = "/categories")
+@Api(tags = "Category Resource", value = "CategoryResource", description = "Controller for Categories")
 public class CategoryResource {
 	
 	@Autowired

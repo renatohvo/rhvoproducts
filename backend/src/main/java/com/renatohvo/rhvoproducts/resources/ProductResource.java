@@ -19,8 +19,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.renatohvo.rhvoproducts.dto.ProductDTO;
 import com.renatohvo.rhvoproducts.services.ProductService;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping(value = "/products")
+@Api(tags = "Product Resource", value = "ProductResource", description = "Controller for Products")
 public class ProductResource {
 	
 	@Autowired

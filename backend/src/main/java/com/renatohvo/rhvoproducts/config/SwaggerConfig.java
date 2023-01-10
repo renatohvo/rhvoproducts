@@ -4,8 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
 
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -20,6 +23,16 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+        		.apiInfo(metaData());
+        
+    }
+    
+    private ApiInfo metaData() {
+    	return new ApiInfoBuilder().title("RHVO Products API")
+    		.description("\"Manutenção de Catálogo de Produtos e suas Categorias com Testes Unitários e de Integração - Spring Boot REST API\"")
+    		.version("1.0.0")
+    		.contact(new Contact("Renato Henrique", "https://linkedin.com/in/renatohvo", "renatohvo@gmail.com"))
+    		.build();
     }
 }
