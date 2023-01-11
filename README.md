@@ -20,7 +20,7 @@ Testes Unitários e de Integração.
 
 ## Como executar o projeto
 
-Pré-requisitos: Java 17
+Pré-requisitos: Java 11
 
 ```bash
 # clonar repositório
