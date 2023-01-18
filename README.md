@@ -35,6 +35,9 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
+## Modelo conceitual
+![Modelo Conceitual](https://github.com/renatohvo/assets/raw/main/rhvoproducts/modeloconceitual-rhvoproducts.png)
+
 ## 
 
 <div display: inline-block>
