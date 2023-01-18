@@ -1,6 +1,6 @@
 # RHVO Products - Backend Project
 
-### Link Postman >> <https://www.getpostman.com/collections/aa14d32f91d7b0f9a51c>
+### Link Postman >> <https://elements.getpostman.com/redirect?entityId=21956516-106b7da6-428c-46aa-b5ba-d9b7c5701b01&entityType=collection>
 
 ## Sobre o projeto
 
@@ -9,9 +9,11 @@ Testes Unitários e de Integração.
 
 ## Tecnologias utilizadas
 
-- API REST com Java e Spring Boot
+- API REST
+- Java
+- Spring Boot
 - Mockito & MockBean
-- ORM com JPA
+- JPA / Hibernate
 - DTO
 - Maven
 - Postman
@@ -24,7 +26,7 @@ Pré-requisitos: Java 11
 
 ```bash
 # clonar repositório
-git clone https://github.com/renatohvo/rhvoproducts
+git clone https://github.com/renatohvo/rhvoproducts.git
 
 # entrar na pasta do projeto backend
 cd backend
