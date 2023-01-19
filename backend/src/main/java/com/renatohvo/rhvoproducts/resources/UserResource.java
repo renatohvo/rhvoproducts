@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.renatohvo.rhvoproducts.dto.UserDTO;
 import com.renatohvo.rhvoproducts.dto.UserInsertDTO;
+import com.renatohvo.rhvoproducts.dto.UserUpdateDTO;
 import com.renatohvo.rhvoproducts.services.UserService;
 
 import io.swagger.annotations.Api;
@@ -53,9 +54,9 @@ public class UserResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserDTO dto){
-		dto = service.update(id, dto);
-		return ResponseEntity.ok().body(dto);
+	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO dto){
+		UserDTO userDto = service.update(id, dto);
+		return ResponseEntity.ok().body(userDto);
 	}
 	
 	@DeleteMapping(value = "/{id}")
