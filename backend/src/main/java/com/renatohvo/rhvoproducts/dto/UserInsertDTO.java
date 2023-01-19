@@ -1,5 +1,8 @@
 package com.renatohvo.rhvoproducts.dto;
 
+import com.renatohvo.rhvoproducts.services.validation.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO {
 	private static final long serialVersionUID = 1L;
 	
