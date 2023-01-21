@@ -15,6 +15,7 @@ Testes Unitários e de Integração.
 - Mockito & MockBean
 - JPA / Hibernate
 - DTO
+- OAuth 2.0
 - Maven
 - Postman
 - Swagger
