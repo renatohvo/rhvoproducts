@@ -1,6 +1,6 @@
 # RHVO Products - Backend Project
 
-### Link Postman >> <https://elements.getpostman.com/redirect?entityId=21956516-106b7da6-428c-46aa-b5ba-d9b7c5701b01&entityType=collection>
+### Link Postman >> <https://elements.getpostman.com/redirect?entityId=21956516-33891e5a-2cf3-49dc-b970-68a84710cb06&entityType=collection>
 
 ## Sobre o projeto
 
