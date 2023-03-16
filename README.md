@@ -1,22 +1,23 @@
 # RHVO Products - Backend Project
-
-### Link Postman >> <https://elements.getpostman.com/redirect?entityId=21956516-33891e5a-2cf3-49dc-b970-68a84710cb06&entityType=collection>
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/renatohvo/rhvoproducts/blob/main/LICENSE) 
 
 ## Sobre o projeto
 
+[Link Postman Collection](https://elements.getpostman.com/redirect?entityId=21956516-33891e5a-2cf3-49dc-b970-68a84710cb06&entityType=collection "Link Postman Collection")
+
 Manutenção de Catálogo de Produtos e suas Categorias com
-Testes Unitários e de Integração.
+Testes Unitários, Testes de Integração, Autenticação e Autorização com OAuth & JWT.
 
 ## Tecnologias utilizadas
 
 - API REST
 - Java
 - Spring Boot
-- Mockito & MockBean
 - JPA / Hibernate
 - DTO
 - OAuth2
 - JWT
+- JUnit
 - Maven
 - Postman
 - Swagger
@@ -39,6 +40,12 @@ cd backend
 
 ## Modelo conceitual
 ![Modelo Conceitual](https://github.com/renatohvo/assets/raw/main/rhvoproducts/modeloconceitual-rhvoproducts.png)
+
+## Autor
+
+Renato Henrique Vasconcelos
+
+https://www.linkedin.com/in/renatohvo/
 
 ## 
 
