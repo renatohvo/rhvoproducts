@@ -6,7 +6,9 @@
 [Link Postman Collection](https://elements.getpostman.com/redirect?entityId=21956516-33891e5a-2cf3-49dc-b970-68a84710cb06&entityType=collection "Link Postman Collection")
 
 Manutenção de Catálogo de Produtos e suas Categorias com
-Testes Unitários, Testes de Integração, Autenticação e Autorização com OAuth & JWT.
+Testes Unitários, Testes de Integração, Autenticação e Autorização.
+
+Em Construção!
 
 ## Tecnologias utilizadas
 
